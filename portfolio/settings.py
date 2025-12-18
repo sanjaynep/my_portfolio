@@ -85,10 +85,6 @@ DATABASES = {
 }
 
 
-# Set default port if not provided
-if not database_config.get('PORT'):
-    database_config['PORT'] = '5432'
-
 
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
