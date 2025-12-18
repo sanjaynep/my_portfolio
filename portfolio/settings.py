@@ -76,10 +76,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+database_config = dj_database_url.parse(
+    os.environ.get("DATABASE_URL")
+)
+
+# Set default port if not provided
+if not database_config.get('PORT'):
+    database_config['PORT'] = '5432'
+
 DATABASES = {
-   'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL")
-   )
+   'default': database_config
 }
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
