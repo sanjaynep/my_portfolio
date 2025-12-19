@@ -16,12 +16,22 @@
     <div class="header">
         <div class="des">
              {% if messages %}
-                <ul>
-                   {% for message in messages %}
-                      <li style="color: red;">{{ message }}</li>
-                   {% endfor %}
-                </ul>
-             {% endif %}
+    <ul>
+        {% for message in messages %}
+            <li 
+                {% if message.tags == "success" %}
+                    style="color: green;"
+                {% elif message.tags == "error" %}
+                    style="color: red;"
+                {% else %}
+                    style="color: black;"
+                {% endif %}
+            >
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
             <h2>Sanjay chudali</h2>
             <h3>Python and Django Backend Developer</h3>
             <p> Fresher django developer with experience in building secure REST APIs and scalable backend applications
